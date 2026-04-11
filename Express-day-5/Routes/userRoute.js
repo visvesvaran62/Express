@@ -6,7 +6,10 @@ const router=express.Router()
 
 
 router.post("/data",sendData)
+
 router.get("/:userid",userId)
+
+
 
 
 
