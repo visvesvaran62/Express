@@ -39,3 +39,14 @@ export const deleteid=async(req,res)=>{
         
     }
 }
+
+export const getingid=async(req,res)=>{
+    try {
+       const {userid}=req.params
+       console.log(req.params);
+       res.status(200).json({msg:userid})
+        
+    } catch (error) {
+        
+    }
+}

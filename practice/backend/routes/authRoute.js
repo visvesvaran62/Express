@@ -1,5 +1,5 @@
 import express from "express"
-import { createData ,getbyid,deleteid} from "../Controller/authController.js"
+import { createData ,getbyid,deleteid,getingid} from "../Controller/authController.js"
 
 
 const route=express.Router()
@@ -7,6 +7,7 @@ const route=express.Router()
 route.post("/data",createData)
 route.get("/data/:userid",getbyid)
 route.delete("/deleteid/:dltid",deleteid)
+route.get("/user/:id",getingid)
 
 
 export default route
@@ -16,3 +17,5 @@ export default route
 // http://localhost:4000/api/users/deleteid/:dltid
 
 // http://localhost:4000/api/users/deleteid/:dltid
+
+// http://localhost:4000/api/users/user/20003
