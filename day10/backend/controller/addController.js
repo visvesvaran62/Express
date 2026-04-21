@@ -8,7 +8,7 @@ export const createdata=async(req,res)=>{
 
       const data=await userModel.create({name,mobilenumber,email})
 
-      res.status(201).json({msg:"succesful",data})
+      res.status(201).json({msg:"succesful"})
         
         
     } catch (error) {
@@ -17,16 +17,13 @@ export const createdata=async(req,res)=>{
     }
 }
 export const finduser=async(req,res)=>{
-    try {
-    const{name,email,mobilenumber}=req.body
-     const finddata=await userModel.find()
-     res.status(200).json({finddata})
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({msg:"internal error"})
-        
-    }
+   try {
+    const data=await userModel.find()
+    res.status(200).json(data);
+   } catch (error) {
+    console.log(error);
+    res.status(500).json({msg:"server error"})
+   }
 }
 export const findbyid=async(req,res)=>{
     try {
@@ -54,7 +51,6 @@ export const updatedata=async(req,res)=>{
         
     }
 }
-
 export const deletedata=async(req,res)=>{
     try {
         const{userid}=req.params
