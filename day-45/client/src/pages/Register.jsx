@@ -14,22 +14,15 @@ const Register = () => {
     }
 
     const handlesubmit=async(e)=>{
-        e.preventDefault()
-        try {
-           const UserData=await axios.post("http://localhost:4000/api/user/data",formdata)
-        //  console.log(UserData);
-        
-         
-        alert(UserData.data.msg)
-        setFormdata({userName:"",email:"",password:""})
+      e.preventDefault()
+      
+        const regisdata=await axios.post("http://localhost:4000/api/auth/regist",formdata)
+        alert(regisdata.data.msg)
 
         navigate("/login")
-          
-        } catch (error) {
-          console.log(error);
-          
-          
-        }
+        
+     
+        
        
 
 
@@ -37,7 +30,7 @@ const Register = () => {
   return (
     <div>
       <form onSubmit={handlesubmit}>
-       <input type="text"  placeholder="enter Your Name" name="Name" value={ formdata.Name} onChange={handlechange}/>
+       <input type="text"  placeholder="enter Your Name" name="userName" value={ formdata.userName} onChange={handlechange}/>
        <input type="email"  placeholder="enter Your email" name="email" value={ formdata.email} onChange={handlechange}/>
        <input type="password"  placeholder="enter Your password" name="password" value={formdata.password } onChange={handlechange}/>
      <input type="submit" value={"register"}/>
