@@ -39,7 +39,7 @@ export const logincheck=async(req,res)=>{
         }
 
        
-     const jwttoken= await jwt.sign({id:emailcheck._id},process.env.JWT_SECURE,{expiresIn:"1h"})
+     const jwttoken= await jwt.sign({id:emailcheck._id,email:emailcheck.email},process.env.JWT_SECURE,{expiresIn:"1h"})
     if(!jwttoken){
         res.status(404).json({msg:"invalid token"})
     }
